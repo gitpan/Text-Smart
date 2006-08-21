@@ -9,5 +9,6 @@ CVS
 #.*
 ^Makefile$
 build-stamp
-debian/files
-debian/libtext-smart-perl.*
+^\.hg
+^cover_db
+

@@ -1,6 +1,14 @@
 Change Log for Text::Smart
 ==========================
 
+v1.0.1: (20-08-2006)
+--------------------
+
+ * Completed POD documentation
+ * Added POD coverage testing
+ * Added functional testing
+ * Ability to escape input text
+
 v1.0.0: (12-05-2004)
 --------------------
 
