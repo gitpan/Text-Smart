@@ -43,7 +43,7 @@ Text::Smart::HTML - Smart text outputter for HTML
 package Text::Smart::HTML;
 
 use strict;
-use Carp qw(confess);
+use warnings;
 
 use Text::Smart;
 

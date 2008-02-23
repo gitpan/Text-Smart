@@ -1,7 +1,33 @@
+# Copyright (C) 2008 Daniel Berrange <dan@berrange.com>
+
+use strict;
+use warnings;
+
+die unless (scalar @ARGV == 1);
+
+open SRC, "lib/Text/Smart.pm"
+    or die "lib/Text/Smart.pm: $!";
+
+our $VERSION;
+while (<SRC>) {
+    if (/\$VERSION\s*=\s*'(.*)'/) {
+	$VERSION=$1;
+    }
+}
+close SRC;
+
+local $/ = undef;
+$_ = <DATA>;
+s/\@VERSION\@/$VERSION/g;
+
+open SPEC, ">$ARGV[0]" or die "$!";
+print SPEC $_;
+close SPEC;
+__DATA__
 --- #YAML:1.0
 name:         Text-Smart
 abstract:     Processor for 'smart text' markup
-version:      1.0.2
+version:      @VERSION@
 author:
   - Daniel P. Berrange <dan@berrange.com>
 license: gpl

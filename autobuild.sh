@@ -12,11 +12,10 @@ rm -rf MANIFEST blib
 # Make makefiles.
 
 perl Makefile.PL PREFIX=$AUTOBUILD_INSTALL_ROOT
-make manifest
-echo $NAME.spec >> MANIFEST
 
 # Build the RPM.
 make
+make manifest
 
 if [ -z "$USE_COVER" ]; then
   perl -MDevel::Cover -e '' 1>/dev/null 2>&1 && USE_COVER=1 || USE_COVER=0
